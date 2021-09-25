@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="API_SampleFP.Views.CurrencyPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <ListView HasUnevenRows="True" ItemsSource="{Binding CurrenciesList}">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10">
+                        <Label
+                            Grid.Row="0"
+                            Grid.ColumnSpan="3"
+                            FontAttributes="Bold"
+                            FontSize="44"
+                            HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="mi" TextColor="Black" />
+                                    <Span Text="Dominicana" TextColor="Red" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="{Binding Name}" />
+                        <Label Text="{Binding Purchase}" />
+                        <Label Text="{Binding Sale}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
