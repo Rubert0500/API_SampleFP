@@ -4,33 +4,49 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <Label
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            FontAttributes="Bold"
+            FontSize="44"
+            HorizontalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="mi" TextColor="Black" />
+                    <Span Text="Dominicana" TextColor="Red" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <ScrollView>
+            <Grid Padding="30" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="2" FontSize="Title" Margin="5" VerticalTextAlignment="Start" Text="Compra   " HorizontalTextAlignment="End"/>
+                <Label Grid.Row="0" Grid.Column="3" FontSize="Title" Margin="5" VerticalTextAlignment="End" Text="Venta" HorizontalTextAlignment="End"/>
 
-    <ListView HasUnevenRows="True" ItemsSource="{Binding CurrenciesList}">
+                <Label Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Loading}"/>
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Padding="10">
-                        <Label
-                            Grid.Row="0"
-                            Grid.ColumnSpan="3"
-                            FontAttributes="Bold"
-                            FontSize="44"
-                            HorizontalTextAlignment="Center">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="mi" TextColor="Black" />
-                                    <Span Text="Dominicana" TextColor="Red" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Label Text="{Binding Name}" />
-                        <Label Text="{Binding Purchase}" />
-                        <Label Text="{Binding Sale}" />
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                <CollectionView 
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="4"
+                    HeightRequest="330"
+                    ItemsSource="{Binding CurrenciesList}" 
+                    Margin="5">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="1*,Auto" ColumnDefinitions="Auto,*,Auto, Auto" Padding="0,10">
+                                <Label Grid.Column="1" Grid.Row="0" FontSize="Subtitle" FontAttributes="Bold" Text="{Binding Name}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                <Label Grid.Column="2" Grid.Row="0" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  Text="{Binding Purchase, StringFormat='RD$ {0:#,#.00}'}" />
+                                <Label Grid.Column="3" Grid.Row="0" FontSize="20" HorizontalTextAlignment="End"  VerticalTextAlignment="Center" Text="{Binding Sale, StringFormat='RD$ {0:#,#.00}'}"/>
+                                <BoxView Grid.Row="1" Grid.ColumnSpan="4" HeightRequest="1" Color="LightGray" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+               
+            </Grid>
+        </ScrollView>
+    </StackLayout>
 
 </ContentPage>
