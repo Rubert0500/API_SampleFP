@@ -2,4 +2,4 @@
 
 This repository is for mobile development practices.
 
-![image](https://user-images.githubusercontent.com/48601671/134755541-14ea399d-4dd4-4939-b24d-cb8268813775.png)
+![image](https://user-images.githubusercontent.com/48601671/141685617-98dd0247-286f-4e9f-aedd-73f3c81185ea.png)
